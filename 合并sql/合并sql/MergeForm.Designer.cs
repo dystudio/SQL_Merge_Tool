@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MergeForm));
             this.textBox = new System.Windows.Forms.TextBox();
-            this.selectFileButton = new System.Windows.Forms.Button();
-            this.mergeButton = new System.Windows.Forms.Button();
+            this.btnChooseFile = new System.Windows.Forms.Button();
+            this.btnMerge = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox = new System.Windows.Forms.ComboBox();
@@ -44,25 +44,25 @@
             this.textBox.Size = new System.Drawing.Size(203, 21);
             this.textBox.TabIndex = 0;
             // 
-            // selectFileButton
+            // btnChooseFile
             // 
-            this.selectFileButton.Location = new System.Drawing.Point(300, 30);
-            this.selectFileButton.Name = "selectFileButton";
-            this.selectFileButton.Size = new System.Drawing.Size(75, 21);
-            this.selectFileButton.TabIndex = 1;
-            this.selectFileButton.Text = "选择";
-            this.selectFileButton.UseVisualStyleBackColor = true;
-            this.selectFileButton.Click += new System.EventHandler(this.button1_Click);
+            this.btnChooseFile.Location = new System.Drawing.Point(300, 30);
+            this.btnChooseFile.Name = "btnChooseFile";
+            this.btnChooseFile.Size = new System.Drawing.Size(75, 21);
+            this.btnChooseFile.TabIndex = 1;
+            this.btnChooseFile.Text = "选择";
+            this.btnChooseFile.UseVisualStyleBackColor = true;
+            this.btnChooseFile.Click += new System.EventHandler(this.ChooseFile_Click);
             // 
-            // mergeButton
+            // btnMerge
             // 
-            this.mergeButton.Location = new System.Drawing.Point(300, 74);
-            this.mergeButton.Name = "mergeButton";
-            this.mergeButton.Size = new System.Drawing.Size(75, 21);
-            this.mergeButton.TabIndex = 2;
-            this.mergeButton.Text = "合并";
-            this.mergeButton.UseVisualStyleBackColor = true;
-            this.mergeButton.Click += new System.EventHandler(this.button2_Click);
+            this.btnMerge.Location = new System.Drawing.Point(300, 74);
+            this.btnMerge.Name = "btnMerge";
+            this.btnMerge.Size = new System.Drawing.Size(75, 21);
+            this.btnMerge.TabIndex = 2;
+            this.btnMerge.Text = "合并";
+            this.btnMerge.UseVisualStyleBackColor = true;
+            this.btnMerge.Click += new System.EventHandler(this.MergeFile_Click);
             // 
             // label1
             // 
@@ -102,8 +102,8 @@
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.mergeButton);
-            this.Controls.Add(this.selectFileButton);
+            this.Controls.Add(this.btnMerge);
+            this.Controls.Add(this.btnChooseFile);
             this.Controls.Add(this.textBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -119,8 +119,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox;
-        private System.Windows.Forms.Button selectFileButton;
-        private System.Windows.Forms.Button mergeButton;
+        private System.Windows.Forms.Button btnChooseFile;
+        private System.Windows.Forms.Button btnMerge;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox;
