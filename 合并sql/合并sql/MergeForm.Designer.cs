@@ -98,6 +98,8 @@
             // chkBoxTransaction
             // 
             this.chkBoxTransaction.AutoSize = true;
+            this.chkBoxTransaction.Checked = true;
+            this.chkBoxTransaction.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBoxTransaction.Location = new System.Drawing.Point(75, 115);
             this.chkBoxTransaction.Name = "chkBoxTransaction";
             this.chkBoxTransaction.Size = new System.Drawing.Size(96, 16);

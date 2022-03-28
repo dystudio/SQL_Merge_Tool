@@ -99,12 +99,14 @@ namespace 合并sql
                     MessageBox.Show("此文件夹内未找到SQL文件！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                if (appendBeginTransactionAndCommit)
+                {
+                    builder.Append("BEGIN TRANSACTION;");
+                }
+
                 for (int i = 0; i < fileInfos.Length; i++)
                 {
-                    if (appendBeginTransactionAndCommit)
-                    {
-                        builder.Append("BEGIN TRANSACTION;");
-                    }
                     builder.Append(String.Format("\r\n\r\n /*******************分割线*for*文件名:{0}*start**************/ \r\n\r\n", fileInfos[i].Name));
                     var fileFullPath = fileInfos[i].FullName;
                     StreamReader Strsw = new StreamReader(fileFullPath, comboBox.SelectedIndex == 0 ? Encoding.UTF8 : Encoding.GetEncoding(54936));
