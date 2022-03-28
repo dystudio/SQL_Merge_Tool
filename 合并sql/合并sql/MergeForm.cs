@@ -74,7 +74,9 @@ namespace 合并sql
             try
             {
                 var selectedFullPath = textBox.Text;
-               
+                var appendBeginTransactionAndCommit = false;
+
+
                 List<string> allFiles = new List<string>();
                 List<FileInfo> fileInfoList = new List<FileInfo>();
                 GetAllFiles(selectedFullPath, allFiles);
@@ -87,6 +89,11 @@ namespace 合并sql
 
                 FileInfo[] fileInfos = fileInfoList.ToArray();
                 StringBuilder builder = new StringBuilder();
+
+                if (this.chkBoxTransaction.Checked) {
+                    appendBeginTransactionAndCommit = true;
+                }
+
                 //空文件夹提示
                 if (fileInfos.Length == 0) {
                     MessageBox.Show("此文件夹内未找到SQL文件！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -94,6 +101,10 @@ namespace 合并sql
                 }
                 for (int i = 0; i < fileInfos.Length; i++)
                 {
+                    if (appendBeginTransactionAndCommit)
+                    {
+                        builder.Append("BEGIN TRANSACTION;");
+                    }
                     builder.Append(String.Format("\r\n\r\n /*******************分割线*for*文件名:{0}*start**************/ \r\n\r\n", fileInfos[i].Name));
                     var fileFullPath = fileInfos[i].FullName;
                     StreamReader Strsw = new StreamReader(fileFullPath, comboBox.SelectedIndex == 0 ? Encoding.UTF8 : Encoding.GetEncoding(54936));
@@ -113,6 +124,12 @@ namespace 合并sql
                     StreamReader sr = new StreamReader(fs, comboBox.SelectedIndex == 0 ? Encoding.UTF8 : Encoding.GetEncoding(54936));
                     builder.Append(sr.ReadToEnd() + "\r\n\r\n /*******************分割线***************/ \r\n\r\n");
 
+                }
+
+                if (appendBeginTransactionAndCommit)
+                {
+                    builder.Append("COMMIT;");
+                    builder.Append("--ROLLBACK;"); 
                 }
                 StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
                 var content = builder.ToString();

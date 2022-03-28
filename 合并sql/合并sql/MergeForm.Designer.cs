@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox = new System.Windows.Forms.ComboBox();
+            this.chkBoxTransaction = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox
@@ -56,7 +57,7 @@
             // 
             // btnMerge
             // 
-            this.btnMerge.Location = new System.Drawing.Point(300, 74);
+            this.btnMerge.Location = new System.Drawing.Point(75, 151);
             this.btnMerge.Name = "btnMerge";
             this.btnMerge.Size = new System.Drawing.Size(75, 21);
             this.btnMerge.TabIndex = 2;
@@ -94,11 +95,22 @@
             this.comboBox.Size = new System.Drawing.Size(203, 20);
             this.comboBox.TabIndex = 5;
             // 
+            // chkBoxTransaction
+            // 
+            this.chkBoxTransaction.AutoSize = true;
+            this.chkBoxTransaction.Location = new System.Drawing.Point(75, 115);
+            this.chkBoxTransaction.Name = "chkBoxTransaction";
+            this.chkBoxTransaction.Size = new System.Drawing.Size(96, 16);
+            this.chkBoxTransaction.TabIndex = 6;
+            this.chkBoxTransaction.Text = "是否加入事务";
+            this.chkBoxTransaction.UseVisualStyleBackColor = true;
+            // 
             // MergeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 113);
+            this.ClientSize = new System.Drawing.Size(415, 229);
+            this.Controls.Add(this.chkBoxTransaction);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.CheckBox chkBoxTransaction;
     }
 }
 
